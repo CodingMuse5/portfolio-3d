@@ -1,0 +1,57 @@
+.scroll-ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #3c2f22;
+}
+
+.scroll-track {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: min(320px, 60vw);
+  height: 3px;
+  background: rgba(60, 47, 34, 0.18);
+  border-radius: 999px;
+}
+
+.scroll-dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3c2f22;
+  transform: translate(-50%, -50%);
+  transition: left 0.05s linear;
+}
+
+.scroll-hint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.15s linear;
+}
+
+.scroll-hint span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.scroll-hint--left {
+  left: 28px;
+}
+
+.scroll-hint--right {
+  right: 28px;
+}
