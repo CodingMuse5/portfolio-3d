@@ -1,0 +1,27 @@
+.hero-overlay {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fdf8ee;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  text-shadow: 0 2px 18px rgba(30, 20, 50, 0.55);
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.hero-overlay h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.hero-overlay p {
+  margin: 8px 0 0;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 400;
+  color: #e9d9c9;
+  letter-spacing: 0.2px;
+}

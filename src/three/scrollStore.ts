@@ -17,6 +17,16 @@ function clamp(v: number) {
   return Math.min(CLAMP_MAX, Math.max(CLAMP_MIN, v));
 }
 
+// Trapezoid fade: 0 below a, ramps to 1 between a-b, holds at 1 through b-c,
+// ramps back to 0 between c-d. Used to fade HTML overlays in/out as the
+// camera swings past their angle range.
+export function trapezoid(p: number, a: number, b: number, c: number, d: number) {
+  if (p <= a || p >= d) return 0;
+  if (p < b) return (p - a) / (b - a);
+  if (p > c) return 1 - (p - c) / (d - c);
+  return 1;
+}
+
 export function initScrollListeners() {
   let touchStartX = 0;
   let touchActive = false;
