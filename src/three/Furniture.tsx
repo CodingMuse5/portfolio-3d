@@ -20,7 +20,7 @@ const LAPTOP = { width: 0.55, baseThickness: 0.02, baseDepth: 0.38, screenHeight
 export default function Furniture() {
   const wallZ = -ROOM.depth / 2;
   const deskX = ROOM.width * 0.22;
-  const deskZ = wallZ + 1.5;
+  const deskZ = wallZ + 2.1;
   const chairZ = deskZ + 0.75;
 
   const legOffsetX = DESK.width / 2 - 0.12;

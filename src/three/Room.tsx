@@ -83,17 +83,6 @@ export default function Room() {
         <meshStandardMaterial color={PALETTE.ceiling} roughness={0.95} />
       </mesh>
 
-      {/* Soft ceiling light strip */}
-      <mesh position={[0, height - 0.03, 0]}>
-        <boxGeometry args={[width * 0.6, 0.04, 0.25]} />
-        <meshStandardMaterial
-          color="#fff3dd"
-          emissive="#fff0d2"
-          emissiveIntensity={0.35}
-          toneMapped={false}
-        />
-      </mesh>
-
       <Furniture />
     </group>
   );
