@@ -6,9 +6,10 @@ import { PROFILE } from "../content/profile";
 import { ROOM, ZONE_X } from "./roomConfig";
 import "./WallNameplate.css";
 
-// Name + intro rendered as a CSS-3D object locked to the back wall (via
-// drei's <Html transform>), so it reads as painted on the wall rather than
-// a flat overlay floating over the scene. Visible while roughly centered.
+// Name + intro anchored to a point on the wall, billboarded to always face
+// the camera — the dolly camera only slides sideways and never turns to
+// face this point, so a true rotated 3D plane here would look skewed
+// (like a picture frame seen from an angle). Visible while roughly centered.
 export default function WallNameplate() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -21,11 +22,11 @@ export default function WallNameplate() {
 
   const wallZ = -ROOM.depth / 2;
   const x = ZONE_X.center - 1.9;
-  const y = 0.95;
+  const y = 1.55;
   const z = wallZ + 0.12;
 
   return (
-    <Html transform position={[x, y, z]} scale={0.22} style={{ pointerEvents: "none" }}>
+    <Html position={[x, y, z]} style={{ pointerEvents: "none" }}>
       <div ref={ref} className="wall-nameplate">
         <h1>{PROFILE.name}</h1>
         <p>{PROFILE.intro}</p>
