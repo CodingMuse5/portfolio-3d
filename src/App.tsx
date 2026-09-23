@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Experience from "./three/Experience";
 import ScrollIndicator from "./components/ScrollIndicator";
-import HeroOverlay from "./components/HeroOverlay";
 import ExperiencePanel from "./components/ExperiencePanel";
 import ProjectsPanel from "./components/ProjectsPanel";
 import Dock from "./components/Dock";
@@ -14,7 +13,6 @@ function App() {
   return (
     <div className="app-stage">
       <Experience />
-      <HeroOverlay />
       <ExperiencePanel />
       <ProjectsPanel />
       <ScrollIndicator />

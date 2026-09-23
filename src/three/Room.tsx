@@ -29,20 +29,20 @@ export default function Room() {
       </mesh>
 
       {/* Floor plank seams */}
-      {Array.from({ length: Math.floor(width / 1.1) }).map((_, i) => (
+      {Array.from({ length: Math.floor(width / 0.6) }).map((_, i) => (
         <mesh
           key={i}
           rotation={[-Math.PI / 2, 0, 0]}
-          position={[-halfW + i * 1.1, 0.001, 0]}
+          position={[-halfW + i * 0.6, 0.001, 0]}
         >
-          <planeGeometry args={[0.02, depth]} />
+          <planeGeometry args={[0.015, depth]} />
           <meshStandardMaterial color={PALETTE.floorAccent} roughness={0.9} />
         </mesh>
       ))}
 
       {/* Rug */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[width * 0.12, 0.005, depth * 0.12]} receiveShadow>
-        <planeGeometry args={[5, 3.4]} />
+        <planeGeometry args={[2.3, 1.6]} />
         <meshStandardMaterial color={PALETTE.rug} roughness={0.95} />
       </mesh>
 
@@ -54,11 +54,11 @@ export default function Room() {
 
       {/* Warm glow panel on the back wall (window/lamp light source), with a soft halo */}
       <mesh position={[width * 0.22, height * 0.6, -halfD + 0.1]}>
-        <planeGeometry args={[3.6, 4.2]} />
+        <planeGeometry args={[1.5, 1.8]} />
         <meshBasicMaterial color={PALETTE.glow} transparent opacity={0.22} />
       </mesh>
       <mesh position={[width * 0.22, height * 0.6, -halfD + 0.11]}>
-        <planeGeometry args={[2.2, 2.6]} />
+        <planeGeometry args={[0.95, 1.15]} />
         <meshStandardMaterial
           color={PALETTE.glow}
           emissive={PALETTE.glow}
@@ -84,12 +84,12 @@ export default function Room() {
       </mesh>
 
       {/* Soft ceiling light strip */}
-      <mesh position={[0, height - 0.05, 0]}>
-        <boxGeometry args={[width * 0.6, 0.06, 0.4]} />
+      <mesh position={[0, height - 0.03, 0]}>
+        <boxGeometry args={[width * 0.6, 0.04, 0.25]} />
         <meshStandardMaterial
           color="#fff3dd"
           emissive="#fff0d2"
-          emissiveIntensity={0.6}
+          emissiveIntensity={0.35}
           toneMapped={false}
         />
       </mesh>

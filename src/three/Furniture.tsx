@@ -9,21 +9,21 @@ const PALETTE = {
   screen: "#bcd6ff",
 };
 
-const DESK = { width: 2.0, thickness: 0.07, depth: 0.85, topY: 0.78 };
-const LEG = { size: 0.06, height: 0.71 };
-const SEAT = { size: 0.5, thickness: 0.06, y: 0.46 };
-const BACKREST = { width: 0.5, height: 0.55, thickness: 0.06 };
-const CHAIR_LEG = { size: 0.05, height: 0.46 };
-const LAPTOP = { width: 0.5, baseThickness: 0.02, baseDepth: 0.34, screenHeight: 0.32 };
+const DESK = { width: 2.3, thickness: 0.08, depth: 0.95, topY: 0.75 };
+const LEG = { size: 0.07, height: 0.68 };
+const SEAT = { size: 0.55, thickness: 0.07, y: 0.46 };
+const BACKREST = { width: 0.55, height: 0.6, thickness: 0.07 };
+const CHAIR_LEG = { size: 0.06, height: 0.46 };
+const LAPTOP = { width: 0.55, baseThickness: 0.02, baseDepth: 0.38, screenHeight: 0.34 };
 
 // Desk + chair + laptop, set against the back wall under the glow panel.
 export default function Furniture() {
   const wallZ = -ROOM.depth / 2;
   const deskX = ROOM.width * 0.22;
-  const deskZ = wallZ + 0.6;
-  const chairZ = deskZ + 0.75;
+  const deskZ = wallZ + 0.65;
+  const chairZ = deskZ + 0.7;
 
-  const legOffsetX = DESK.width / 2 - 0.1;
+  const legOffsetX = DESK.width / 2 - 0.12;
   const legOffsetZ = DESK.depth / 2 - 0.1;
 
   return (
