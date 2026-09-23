@@ -21,7 +21,7 @@ export default function WallNameplate() {
 
   const wallZ = -ROOM.depth / 2;
   const x = -ROOM.width * 0.15;
-  const y = ROOM.height * 0.58;
+  const y = ROOM.height * 0.4;
   const z = wallZ + 0.12;
 
   return (
