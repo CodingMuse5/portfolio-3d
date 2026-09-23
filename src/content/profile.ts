@@ -1,6 +1,8 @@
 export const PROFILE = {
   name: "Shreya Sawant",
-  tagline: "Full-Stack Developer & Embedded Systems Engineer",
+  tagline: "Full-Stack Developer",
+  intro:
+    "I'm a full-stack developer who likes building products end to end — React and React Native on the front, Node.js and Express on the back. I've shipped real-time dashboards, webhook-driven bots, and mobile integrations for production use. Currently exploring backend systems, APIs, and AI-assisted features. Always learning by building.",
   email: "shreyasawant5.work@gmail.com",
   links: {
     github: "https://github.com/CodingMuse5",

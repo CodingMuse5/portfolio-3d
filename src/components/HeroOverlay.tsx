@@ -3,8 +3,8 @@ import { scrollState, trapezoid } from "../three/scrollStore";
 import { PROFILE } from "../content/profile";
 import "./HeroOverlay.css";
 
-// Visible while the camera is roughly centered; fades out as it swings
-// toward either side panel.
+// Sits on the empty wall to the left of the glow panel. Visible while the
+// camera is roughly centered; fades out as it swings toward either panel.
 export default function HeroOverlay() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,7 @@ export default function HeroOverlay() {
   return (
     <div ref={ref} className="hero-overlay">
       <h1>{PROFILE.name}</h1>
-      <p>{PROFILE.tagline}</p>
+      <p>{PROFILE.intro}</p>
     </div>
   );
 }

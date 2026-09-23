@@ -1,4 +1,5 @@
 import { ROOM } from "./roomConfig";
+import Furniture from "./Furniture";
 
 const PALETTE = {
   floor: "#c7a476",
@@ -92,6 +93,8 @@ export default function Room() {
           toneMapped={false}
         />
       </mesh>
+
+      <Furniture />
     </group>
   );
 }
