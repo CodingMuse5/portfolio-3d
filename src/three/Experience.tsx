@@ -11,7 +11,7 @@ export default function Experience() {
       shadows
       dpr={[1, 2]}
       camera={{
-        fov: 50,
+        fov: 44,
         near: 0.1,
         far: 100,
         position: [ORBIT.pivot.x, ORBIT.eyeHeight, ORBIT.pivot.z + ORBIT.radius],

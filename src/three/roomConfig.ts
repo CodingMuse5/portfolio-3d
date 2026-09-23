@@ -11,8 +11,8 @@ export const ROOM = {
 // The camera doesn't slide sideways — it swings on an arc around a pivot
 // near the room's center, like turning your head to look around a corner.
 export const ORBIT = {
-  pivot: { x: 0, y: 1.3, z: -ROOM.depth * 0.12 },
-  radius: 5,
-  eyeHeight: 1.55, // roughly human eye level, not floating above the ceiling
+  pivot: { x: 0, y: 1.1, z: -ROOM.depth * 0.12 },
+  radius: 4.6,
+  eyeHeight: 1.42, // roughly human eye level, not floating above the ceiling
   maxAngle: (32 * Math.PI) / 180, // swing this far left/right of center
 };
