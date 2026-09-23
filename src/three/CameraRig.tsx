@@ -1,18 +1,16 @@
 import { useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { scrollState } from "./scrollStore";
-import { ORBIT, ROOM } from "./roomConfig";
+import { DOLLY, ROOM } from "./roomConfig";
+
+const wallZ = -ROOM.depth / 2;
+const cameraZ = wallZ + DOLLY.distance;
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-// How far the gaze target leads the camera's swing, so the wall section
-// you're turning toward stays centered in frame instead of the camera
-// always staring back at a fixed point (which crops the far wall edge).
-const LOOK_SWEEP = ROOM.width * 0.34;
-
-// Swings the camera on a circular arc around a pivot near the room's
-// center — scrolling left/right rotates the view around the room rather
-// than sliding it, plus a small mouse-parallax tilt for depth.
+// Slides the camera sideways in front of the wall, always facing straight
+// ahead into it (no rotation) — a tracking-shot dolly, not an orbit. This
+// keeps the wall filling the frame edge to edge at every scroll position.
 export default function CameraRig() {
   const { camera, pointer } = useThree();
   const mouseInfluence = useRef({ x: 0, y: 0 });
@@ -24,16 +22,13 @@ export default function CameraRig() {
     mouseInfluence.current.x = lerp(mouseInfluence.current.x, pointer.x, smoothing);
     mouseInfluence.current.y = lerp(mouseInfluence.current.y, pointer.y, smoothing);
 
-    // progress in [0, 1] -> angle in [-maxAngle, +maxAngle]
-    const angle = lerp(-ORBIT.maxAngle, ORBIT.maxAngle, scrollState.current);
-    const wobble = mouseInfluence.current.x * 0.05;
+    const x = lerp(-DOLLY.travel, DOLLY.travel, scrollState.current);
 
-    camera.position.x = ORBIT.pivot.x + ORBIT.radius * Math.sin(angle + wobble);
-    camera.position.z = ORBIT.pivot.z + ORBIT.radius * Math.cos(angle + wobble);
-    camera.position.y = ORBIT.eyeHeight + mouseInfluence.current.y * 0.15;
+    camera.position.x = x + mouseInfluence.current.x * 0.15;
+    camera.position.y = DOLLY.eyeHeight + mouseInfluence.current.y * 0.08;
+    camera.position.z = cameraZ;
 
-    const lookX = ORBIT.pivot.x + Math.sin(angle) * LOOK_SWEEP;
-    camera.lookAt(lookX, ORBIT.pivot.y, ORBIT.pivot.z);
+    camera.lookAt(camera.position.x, DOLLY.lookY, wallZ);
   });
 
   return null;

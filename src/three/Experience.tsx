@@ -3,7 +3,9 @@ import { ContactShadows } from "@react-three/drei";
 import Room from "./Room";
 import CameraRig from "./CameraRig";
 import WallNameplate from "./WallNameplate";
-import { ORBIT, ROOM } from "./roomConfig";
+import { DOLLY, ROOM, ZONE_X } from "./roomConfig";
+
+const wallZ = -ROOM.depth / 2;
 
 export default function Experience() {
   return (
@@ -11,43 +13,48 @@ export default function Experience() {
       shadows
       dpr={[1, 2]}
       camera={{
-        fov: 44,
+        fov: 55,
         near: 0.1,
         far: 100,
-        position: [ORBIT.pivot.x, ORBIT.eyeHeight, ORBIT.pivot.z + ORBIT.radius],
+        position: [-DOLLY.travel, DOLLY.eyeHeight, wallZ + DOLLY.distance],
       }}
     >
       <color attach="background" args={["#4b3f66"]} />
       <fog attach="fog" args={["#4b3f66", 7, 15]} />
 
-      {/* cool ambient fill so the un-lit (left) side of the room stays moody, not black */}
-      <ambientLight intensity={0.9} color="#8f86c9" />
-      <directionalLight
-        position={[-4, 5, 2.5]}
-        intensity={1.2}
-        color="#9a91d1"
-      />
-      {/* warm key light, offset to the right — matches the glow panel on the wall */}
+      <ambientLight intensity={0.85} color="#8f86c9" />
+      <directionalLight position={[-4, 5, 2.5]} intensity={1.0} color="#9a91d1" />
+
+      {/* Warm accent near the desk zone */}
       <pointLight
-        position={[ROOM.width * 0.24, ROOM.height * 0.55, -ROOM.depth * 0.05]}
-        intensity={22}
+        position={[ZONE_X.center + 1.6, ROOM.height * 0.6, wallZ + 1.5]}
+        intensity={16}
         color="#ffcf8f"
-        distance={6}
+        distance={5.5}
         decay={2}
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <pointLight position={[0, ROOM.height - 0.15, 0]} intensity={4.5} decay={2} distance={5} color="#fff0d2" />
+      {/* Soft fill near the sofa zone */}
+      <pointLight
+        position={[ZONE_X.right, ROOM.height * 0.7, wallZ + 1.8]}
+        intensity={10}
+        color="#d9c8ff"
+        distance={5.5}
+        decay={2}
+      />
+      {/* Soft fill near the art wall */}
+      <pointLight
+        position={[ZONE_X.left, ROOM.height * 0.7, wallZ + 1.2]}
+        intensity={8}
+        color="#ffe4c2"
+        distance={5}
+        decay={2}
+      />
 
       <Room />
       <WallNameplate />
-      <ContactShadows
-        position={[0, 0.01, 0]}
-        opacity={0.35}
-        scale={ROOM.width}
-        blur={2.2}
-        far={4}
-      />
+      <ContactShadows position={[0, 0.01, 0]} opacity={0.35} scale={ROOM.width} blur={2.2} far={4} />
 
       <CameraRig />
     </Canvas>

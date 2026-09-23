@@ -1,18 +1,24 @@
 // Central place to tune the room's dimensions so the camera rig, walls and
-// (future) section anchors all agree on the same coordinate space.
-// 1 unit = 1 metre, so furniture and eye-height read as human-scale
-// instead of a scaled-down diorama.
+// furniture all agree on the same coordinate space.
+// 1 unit = 1 metre, so furniture and eye-height read as human-scale.
 export const ROOM = {
-  width: 9, // x-axis
-  depth: 5, // z-axis
+  width: 16, // x-axis — one long wall with three furniture zones along it
+  depth: 5.5, // z-axis
   height: 2.8, // y-axis (standard ceiling height)
 };
 
-// The camera doesn't slide sideways — it swings on an arc around a pivot
-// near the room's center, like turning your head to look around a corner.
-export const ORBIT = {
-  pivot: { x: 0, y: 1.1, z: -ROOM.depth * 0.12 },
-  radius: 4.6,
-  eyeHeight: 1.42, // roughly human eye level, not floating above the ceiling
-  maxAngle: (32 * Math.PI) / 180, // swing this far left/right of center
+// The camera never rotates — it dollies sideways in front of the wall,
+// always facing straight into it, so the wall fills the frame edge to
+// edge instead of swinging around to reveal the room's corners.
+export const DOLLY = {
+  travel: ROOM.width / 2 - 3.2, // how far the camera can slide left/right
+  distance: 3.0, // camera-to-wall distance
+  eyeHeight: 1.5,
+  lookY: 1.05, // slight downward tilt, toward desk/seat height
+};
+
+export const ZONE_X = {
+  left: -DOLLY.travel,
+  center: 0,
+  right: DOLLY.travel,
 };

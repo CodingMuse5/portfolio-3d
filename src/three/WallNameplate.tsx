@@ -3,7 +3,7 @@ import { Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { scrollState, trapezoid } from "./scrollStore";
 import { PROFILE } from "../content/profile";
-import { ROOM } from "./roomConfig";
+import { ROOM, ZONE_X } from "./roomConfig";
 import "./WallNameplate.css";
 
 // Name + intro rendered as a CSS-3D object locked to the back wall (via
@@ -20,8 +20,8 @@ export default function WallNameplate() {
   });
 
   const wallZ = -ROOM.depth / 2;
-  const x = -ROOM.width * 0.15;
-  const y = ROOM.height * 0.4;
+  const x = ZONE_X.center - 1.9;
+  const y = 0.95;
   const z = wallZ + 0.12;
 
   return (

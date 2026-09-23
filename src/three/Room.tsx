@@ -1,20 +1,18 @@
-import { ROOM } from "./roomConfig";
+import { ROOM, ZONE_X } from "./roomConfig";
 import Furniture from "./Furniture";
 
 const PALETTE = {
   floor: "#c7a476",
   floorAccent: "#b58f61",
-  wallBack: "#7d6f9b",
-  wallSide: "#6d5f8a",
+  wallBack: "#9089c4",
+  wallSide: "#8078b0",
   ceiling: "#5b4f78",
   rug: "#cdb9a4",
-  glow: "#ffd9a0",
 };
 
-// A compact, boxy room in a dusty-lavender palette with a warm light glow
-// on one side (the camera orbits around this rather than sliding past it).
-// Deliberately undecorated — this is the stage; furniture/sections slot in
-// once the layout is set.
+// One long back wall the camera dollies past — deliberately undecorated
+// beyond the shell; Furniture places the three zones (art wall, desk, sofa)
+// along it.
 export default function Room() {
   const { width, depth, height } = ROOM;
   const halfW = width / 2;
@@ -40,9 +38,9 @@ export default function Room() {
         </mesh>
       ))}
 
-      {/* Rug */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[width * 0.12, 0.005, depth * 0.12]} receiveShadow>
-        <planeGeometry args={[2.3, 1.6]} />
+      {/* Rug under the desk zone */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[ZONE_X.center, 0.005, depth * 0.12]} receiveShadow>
+        <planeGeometry args={[2.6, 1.7]} />
         <meshStandardMaterial color={PALETTE.rug} roughness={0.95} />
       </mesh>
 
@@ -52,22 +50,7 @@ export default function Room() {
         <meshStandardMaterial color={PALETTE.wallBack} roughness={0.9} />
       </mesh>
 
-      {/* Warm glow panel on the back wall (window/lamp light source), with a soft halo */}
-      <mesh position={[width * 0.22, height * 0.6, -halfD + 0.1]}>
-        <planeGeometry args={[1.5, 1.8]} />
-        <meshBasicMaterial color={PALETTE.glow} transparent opacity={0.22} />
-      </mesh>
-      <mesh position={[width * 0.22, height * 0.6, -halfD + 0.11]}>
-        <planeGeometry args={[0.95, 1.15]} />
-        <meshStandardMaterial
-          color={PALETTE.glow}
-          emissive={PALETTE.glow}
-          emissiveIntensity={0.8}
-          toneMapped={false}
-        />
-      </mesh>
-
-      {/* End walls (cap the room on both sides) */}
+      {/* End walls (cap the room; rarely if ever in frame with the dolly camera) */}
       <mesh position={[-halfW, height / 2, 0]} receiveShadow>
         <boxGeometry args={[0.2, height, depth]} />
         <meshStandardMaterial color={PALETTE.wallSide} roughness={0.9} />
