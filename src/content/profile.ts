@@ -3,7 +3,7 @@ export const PROFILE = {
   initials: "SS",
   tagline: "Full-stack developer building products end to end.",
   intro:
-    "I like building products that go from idea to something people actually use — React and React Native on the front, Node.js and Express on the back. I've shipped real-time dashboards, webhook-driven bots, and mobile integrations for production use. Currently exploring backend systems, APIs, and AI-assisted features.",
+    "I like building products that go from idea to something people actually use, with React and React Native on the front and Node.js and Express on the back. I've shipped real-time dashboards, webhook-driven bots, and mobile integrations for production use. Currently exploring backend systems, APIs, and AI-assisted features.",
   email: "shreyasawant5.work@gmail.com",
   links: {
     github: "https://github.com/CodingMuse5",

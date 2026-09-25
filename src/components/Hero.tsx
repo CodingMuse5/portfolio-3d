@@ -12,15 +12,6 @@ export default function Hero() {
       <HeroCanvas />
 
       <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent-soft)] text-lg font-semibold text-[var(--accent)] ring-4 ring-[var(--bg)]"
-      >
-        {PROFILE.initials}
-      </motion.div>
-
-      <motion.div
         className="relative"
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
