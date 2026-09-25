@@ -46,7 +46,7 @@ export const PROJECTS = [
     description:
       "A React dashboard integrating NASA Open APIs to visualize real-time Astronomy Picture of the Day data, with an Express backend, fail-safe caching, and a Gemini 2.5 Flash-powered assistant (\"Nova AI\"). MongoDB schemas drive social matching, user interactions, and dynamic ranking logic.",
     tags: ["React", "Express", "MongoDB", "Tailwind CSS", "Gemini API"],
-    link: null,
+    link: "https://github.com/CodingMuse5/Daily_Cosmos",
   },
   {
     name: "Beacon",
@@ -54,7 +54,7 @@ export const PROJECTS = [
     description:
       "A React and TypeScript console that parses resumes and job descriptions with Gemini, ranking candidates through pgvector similarity search combined with skill-overlap scoring. A Node.js and Python microservice backend generates citation-backed \"Insight Cards,\" and a pgvector schema pulls in GitHub activity to help gauge real-world credibility.",
     tags: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Gemini API"],
-    link: null,
+    link: "https://github.com/CodingMuse5/Beacon",
   },
   {
     name: "Attendance Detection System",
