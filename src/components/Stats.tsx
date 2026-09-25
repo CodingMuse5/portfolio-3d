@@ -10,7 +10,7 @@ const LEETCODE_USERNAME = "CodingGirl05";
 export default function Stats() {
   const { theme } = useTheme();
 
-  const leetcodeCardSrc = `https://leetcard.jacoblin.cool/${LEETCODE_USERNAME}?theme=${theme}&font=Manrope&extension=activity`;
+  const leetcodeCardSrc = `https://leetcard.jacoblin.cool/${LEETCODE_USERNAME}?theme=${theme}&font=Manrope&extension=heatmap`;
 
   return (
     <Section id="stats" title="Stats" subtitle="GitHub activity and LeetCode progress">
