@@ -49,19 +49,19 @@ export const PROJECTS = [
     link: null,
   },
   {
+    name: "Beacon",
+    year: "2026",
+    description:
+      "A React and TypeScript console that parses resumes and job descriptions with Gemini, ranking candidates through pgvector similarity search combined with skill-overlap scoring. A Node.js and Python microservice backend generates citation-backed \"Insight Cards,\" and a pgvector schema pulls in GitHub activity to help gauge real-world credibility.",
+    tags: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Gemini API"],
+    link: null,
+  },
+  {
     name: "Attendance Detection System",
     year: "2026",
     description:
       "A real-time React dashboard for instant, no-refresh attendance updates, backed by an event-driven Node.js service that processes continuous RFID scanner data and a MongoDB schema with state-tracking logic to automate entry/exit status.",
     tags: ["React", "Node.js", "MongoDB", "RFID/IoT"],
-    link: null,
-  },
-  {
-    name: "Crop Disease Detector",
-    year: "2025",
-    description:
-      "An offline TensorFlow model (PlantifyDr) detecting 37 plant diseases on edge hardware, with real-time Firebase sync between sensors and cloud predictions, and a diagnostic mobile app built in MIT App Inventor for plant-health tracking.",
-    tags: ["TensorFlow", "Firebase", "Raspberry Pi", "MIT App Inventor"],
     link: null,
   },
 ];
@@ -70,18 +70,27 @@ export const SKILLS = [
   "Java",
   "JavaScript",
   "TypeScript",
+  "Python",
   "C/C++",
   "React.js",
   "React Native",
   "Expo",
+  "Vite",
+  "Tailwind CSS",
+  "TanStack Query",
+  "Three.js",
   "Node.js",
   "Express.js",
+  "FastAPI",
   "Cloudflare Workers",
   "Drizzle ORM",
   "MySQL",
   "PostgreSQL",
+  "Supabase",
   "MongoDB",
   "Firebase",
+  "Gemini API",
+  "TensorFlow",
   "Git",
   "GitHub Actions",
   "Postman",
@@ -90,7 +99,7 @@ export const SKILLS = [
 export const EDUCATION = {
   school: "University of Mumbai (TSEC)",
   degree: "B.E., Electronics & Telecommunications",
-  detail: "CGPA 9.125 · Rank 1, Semester 4",
+  detail: "CGPA 9.45 · Rank 1, Semester 4",
   period: "2023 - 2027",
 };
 
