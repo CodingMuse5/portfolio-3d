@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { PROFILE } from "../content/profile";
+import HeroCanvas from "./HeroCanvas";
 
 export default function Hero() {
   return (
@@ -8,6 +9,7 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-[var(--accent)]/25 blur-3xl"
       />
+      <HeroCanvas />
 
       <motion.div
         initial={{ opacity: 0, y: 14 }}

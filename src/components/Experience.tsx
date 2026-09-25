@@ -1,6 +1,7 @@
 import { EXPERIENCE } from "../content/profile";
 import Section from "./Section";
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 
 export default function Experience() {
   return (
@@ -8,7 +9,7 @@ export default function Experience() {
       <div className="flex flex-col gap-8">
         {EXPERIENCE.map((job, i) => (
           <Reveal key={job.org} delay={i * 0.08}>
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--accent-soft)]/40">
+            <TiltCard className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 transition-shadow duration-300 hover:shadow-lg hover:shadow-[var(--accent-soft)]/40">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="font-semibold">{job.role}</h3>
                 <span className="text-xs text-[var(--text-soft)]">{job.period}</span>
@@ -33,7 +34,7 @@ export default function Experience() {
                   </span>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           </Reveal>
         ))}
       </div>
