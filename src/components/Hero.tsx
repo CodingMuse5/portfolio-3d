@@ -4,7 +4,10 @@ import HeroCanvas from "./HeroCanvas";
 
 export default function Hero() {
   return (
-    <section className="relative mx-auto flex max-w-3xl flex-col items-start gap-6 overflow-hidden px-6 pb-20 pt-28">
+    <section
+      id="home"
+      className="relative mx-auto flex max-w-3xl flex-col items-start gap-6 overflow-hidden px-6 pb-20 pt-28"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-[var(--accent)]/25 blur-3xl"
