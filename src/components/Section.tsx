@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Reveal from "./Reveal";
 
 export default function Section({
   id,
@@ -13,8 +14,10 @@ export default function Section({
 }) {
   return (
     <section id={id} className="mx-auto max-w-3xl scroll-mt-24 px-6 py-14">
-      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
-      {subtitle && <p className="mt-1 text-sm text-[var(--text-soft)]">{subtitle}</p>}
+      <Reveal>
+        <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+        {subtitle && <p className="mt-1 text-sm text-[var(--text-soft)]">{subtitle}</p>}
+      </Reveal>
       <div className="mt-6">{children}</div>
     </section>
   );

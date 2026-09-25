@@ -1,19 +1,37 @@
+import { motion } from "framer-motion";
 import { SKILLS } from "../content/profile";
 import Section from "./Section";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.03 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function Skills() {
   return (
     <Section id="skills" title="Skills">
-      <div className="flex flex-wrap gap-2">
+      <motion.div
+        className="flex flex-wrap gap-2"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-60px" }}
+      >
         {SKILLS.map((s) => (
-          <span
+          <motion.span
             key={s}
-            className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm text-[var(--text)]"
+            variants={item}
+            className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm text-[var(--text)] transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             {s}
-          </span>
+          </motion.span>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }
